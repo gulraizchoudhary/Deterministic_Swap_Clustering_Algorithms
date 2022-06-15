@@ -39,10 +39,10 @@ class dd(KMeans):
         self.n_clusters = len(C) # set k-value
         super().fit(X) # Lloyd's algorithm, sets self.inertia_ (a.k.a. phi)
 
-    def fit(self, X, dim, iterations):
+    def fit(self, X, iterations):
         """ DD: deterministic removal of centroid and deterministic addition of centroid """
         
-        # run k-means++ (unless 'init' parameter specifies differently)
+        # run k-means (unless 'init' parameter specifies differently)
         super().fit(X) # requires self.n_clusters >= 1
         
         
